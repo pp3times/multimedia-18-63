@@ -1,0 +1,77 @@
+<html>
+    <head>
+        <title>Hello Haha</title>
+        <style>
+            body {
+                text-align: center;
+                background: #eee;
+            }
+            body > h1 {
+                text-align: center;
+            }
+            #input-when {
+                width: 80vw;
+            }
+            #show {
+                display: flex;
+                flex-direction: column-reverse;
+            }
+            .card {
+                width: 80vw;
+                background: white;
+                margin: 20px auto;
+                border-radius: 5px;
+                display: none;
+            }
+            .card.show {
+                display: inline-block;
+                animation: show 0.5s forwards;
+            }
+            .card.hind {
+                animation: hind 0.5s forwards;
+            }
+            @keyframes show{
+                from {
+                    height: 0px;
+                    
+                }
+                to {
+                    height: 200px;
+                }
+            }
+            @keyframes hind{
+                from {
+                    height: 200px;
+                }
+                to {
+                    height: 0px;
+                    display: none;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <h1>ย้อนร้อยรัฐประหารในประวัติศาสตร์ไทย</h1>
+        <h3>พ.ศ. <span id="when">2475</span></h3>
+        <input id="input-when" type="range" min="2475" max="2564" value="2475" oninput="update(this.value)"/>
+        <div id="show">
+        </div>
+    </body>
+    <script>
+        for (let i = 1; i <= 89; i++) {
+            show.innerHTML += `<div class="card" id="info" data-when="${2474+i}">ครั้งที่ ${i}</div>`
+        }
+        const update = (n) => {
+            document.querySelectorAll("#info").forEach((el) => {
+                if (el.dataset.when <= n) {
+                    el.classList.remove("hind")
+                    el.classList.add("show")
+                } else {
+                    el.classList.remove("show")
+                    el.classList.toggle("hind")
+                }
+                when.innerText = n;
+            })
+        }
+    </script>
+</html>

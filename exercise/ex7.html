@@ -1,0 +1,47 @@
+<!--
+    ให้เริ่มต้นมา แสดงสีอื่น ที่ไม่ใช่สีแดง
+    ให้เวลาเปลี่ยนค่าใน range ด้านล่างแล้ว hue เปลี่ยนไปตามค่าของ input ที่เราเลื่อน โดยแสดงค่าหรือ value ใน h2 ที่กำหนดไว้
+    https://codebox.jabont.com/code/3071/?
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Jabont.com</title>
+    <style>
+        :root {
+            --s: 0%;
+            --h: 80;
+        }
+
+        .xexe {
+            background: hsl(var(--h), var(--s), 50%);
+        }
+    </style>
+    <script>
+        const change = (val) => {
+            // console.log(val);
+            document.documentElement.style.setProperty("--h", val);
+            abc.innerText = val;
+        }
+    </script>
+</head>
+
+<body>
+    <h1 id="xyz">Hello World</h1>
+    <h2 id="abc">80</h2>
+    <div id="wrap1"></div>
+    <script>
+        for (let i = 0; i < 11; i++) {
+            wrap1.innerHTML += `<div class="xexe" style="--s:${i * 10
+                }%">${i}</div>`;
+        }
+    </script>
+    <input type="range" min="0" max="360" step="1" value="80" onchange="change(this.value)" />
+
+</body>
+
+</html>

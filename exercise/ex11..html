@@ -1,0 +1,41 @@
+<html>
+  <head>
+    <title>Let's Start</title>
+    <style>
+      :root {
+        --h: 0;
+        --l: 50;
+      }
+      body {
+        background: hsl(var(--h), 100%, calc(1% * var(--l)));
+      }
+    </style>
+  </head>
+  <body>
+    <script type="text/javascript">
+      var h = 0;
+      var l = 50;
+      document.body.onkeyup = function (e) {
+        console.log(e);
+        switch (e.key) {
+          case "ArrowLeft":
+            console.log("I am left");
+            document.documentElement.style.setProperty("--h", (h += 10));
+            break;
+          case "ArrowRight":
+            console.log("I am right");
+            document.documentElement.style.setProperty("--h", (h -= 10));
+            break;
+          case "ArrowUp":
+            console.log("I am up");
+            document.documentElement.style.setProperty("--l", (l += 10));
+            break;
+          case "ArrowDown":
+            console.log("I am down");
+            document.documentElement.style.setProperty("--l", (l -= 10));
+            break;
+        }
+      };
+    </script>
+  </body>
+</html>

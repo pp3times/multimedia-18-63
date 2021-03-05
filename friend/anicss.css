@@ -1,0 +1,185 @@
+body {
+  margin-top: 20px;
+  background: #000000;
+  display: flex;
+  font-family: sans-serif;
+  color: #000000;
+}
+.the_blocks {
+  display: flex;
+  width:300px;
+  margin: auto;
+  flex-flow: row wrap;
+  transform: rotateX(50deg) rotateZ(30deg);
+  transform-style: preserve-3d;
+  position: relative;
+}
+/* .the_blocks::before {
+/*   content: " → X →"; */
+  position: absolute;
+  top: -1.5em;
+  width: 100%;
+  text-align: center; */
+}
+.the_blocks::after {
+/*   content: "← Y ←"; */
+  position: absolute;
+  left: -1.5em;
+  top: 1em;
+  text-align: center;
+  transform: rotate(-0.25turn);
+}
+.the_blocks .row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 500%;
+}
+block {
+  width: 8%;
+  margin: 1%;
+  padding-top: 8%;
+  background-color: hsl(var(--hue), 100%, 50%);
+  display: flex;
+  position: relative;
+  box-sizing: border-box;
+  animation: move 5s infinite alternate;
+  transform-style:preserve-3d;
+/*   ให้น้องดูดึ๋งๆ */
+  animation-timing-function:cubic-bezier(.17,.67,.99,.37);
+}
+@keyframs rotate {
+  form: {
+    transform: rotatex(0deg);
+  }
+  to: {
+    transform: rotatex(360deg);
+  }
+}
+block side {
+  width: 100%;
+  height: 100%;
+  background-color: #0008;
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform-origin: bottom right;
+  transform-style: preserve-3d;
+}
+
+/* เขียวอ่อน */
+side.green1 {
+  background: #1D8348;
+  transform: rotatex(90deg);
+}
+side.green2{
+  background: #239B56;
+  transform: rotatey(-90deg);
+}
+side.greentop {
+  background: #58D68D;
+  transform: rotatey(180deg);
+  transform-origin: top;
+}
+side.green4{
+  background: #58D68D;
+  transform: rotatex(-90deg);
+  transform-origin: top left;
+}
+
+/* เขียวเข้ม */
+side.darkgreen1 {
+  background: #196F3D ;
+  transform: rotatex(90deg);
+}
+side.darkgreen2 {
+  background: #1E8449;
+  transform: rotatey(-90deg);
+}
+side.darkgreentop {
+  background: #27AE60;
+  transform: rotatey(180deg);
+  transform-origin: top;
+}
+side.darkgreen4{
+  background: #27AE60;
+  transform: rotatex(-90deg);
+  transform-origin: top left;
+}
+
+/* red */
+side.red1{
+  background: #B71C1C;
+  transform: rotatex(90deg);
+}
+side.red2{
+  background:#C62828;
+  transform: rotatey(-90deg);
+}
+side.redtop{
+ background:#D32F2F;
+  transform: rotatey(180deg);
+  transform-origin: top;
+}
+side.red4{
+  background: #D32F2F;
+  transform: rotatex(-90deg);
+  transform-origin: top left;
+}
+
+/* pink */
+side.pink1{
+ background:#F06292;
+ transform:rotatex(90deg);
+}
+side.pink2{
+ background:#F48FB1;
+ transform:rotatey(-90deg);
+}
+side.pinktop{
+  background:#F8BBD0;
+  transform: rotatey(180deg);
+  transform-origin: top;
+}
+side.pink4{
+  background:#F8BBD0;
+  transform: rotatex(-90deg);
+  transform-origin: top left;
+}
+
+/* black */
+side.black1{
+ background:#000000;
+ transform:rotatex(90deg);
+ animation: black 5s infinite;
+}
+side.black2{
+  background:#242222;
+  transform:rotatey(-90deg);
+  animation: black 5s infinite;
+}
+side.blacktop{
+  background:#403d3d;
+   transform: rotatey(180deg);
+  transform-origin: top;
+  animation: black 5s infinite;
+}
+side.black4{
+  background:#403d3d;
+  transform: rotatex(-90deg);
+  transform-origin: top left;
+  animation: black 5s infinite;
+}
+@keyframes move{
+ 20%{transform:translatez(100px)
+   rotatex(50deg);}
+ 50%{transform:translatey(100px)
+  rotatez(100deg);}
+ 100%{transform:translatex(100px);}
+}
+
+@keyframes black {
+  0%{background-color:#000000;}
+  100%{background-color:#ffffff;}
+}

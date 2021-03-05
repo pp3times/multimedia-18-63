@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        html,
+        body {
+            height: 100%;
+            background: #161616;
+            color: #f4f4f4;
+            font-family: "Montserrat", sans-serif;
+        }
+
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+
+        .DNA {
+            width: 150px;
+            height: 400px;
+            perspective: 2500px;
+        }
+
+        .bases {
+            width: 180px;
+            height: 15px;
+            transform-style: preserve-3d;
+            transform-origin: center center 0;
+            animation: spin 4000ms reverse linear infinite;
+            background-size: 100% 3px;
+            background-position: 0 5px;
+            background-repeat: no-repeat;
+        }
+
+        .bases:before,
+        .bases:after {
+            display: inline-block;
+            position: relative;
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            -webkit-animation: spin 4000ms linear infinite;
+            animation: spin 4000ms linear infinite;
+            content: "";
+        }
+
+        .bases:before {
+            transform: translate(-5px, -5px);
+        }
+
+        .bases:after {
+            float: right;
+            transform: translate(5px, 3px);
+        }
+
+        .bases:nth-of-type(0) {
+            -webkit-animation-delay: 0ms;
+            animation-delay: 0ms;
+        }
+
+        .bases:nth-of-type(0):before,
+        .bases:nth-of-type(0):after {
+            -webkit-animation-delay: 0ms;
+            animation-delay: 0ms;
+        }
+
+        .bases:nth-of-type(1) {
+            -webkit-animation-delay: -166.6666666667ms;
+            animation-delay: -166.6666666667ms;
+        }
+
+        .bases:nth-of-type(1):before,
+        .bases:nth-of-type(1):after {
+            -webkit-animation-delay: -166.6666666667ms;
+            animation-delay: -166.6666666667ms;
+        }
+
+        .bases:nth-of-type(2) {
+            -webkit-animation-delay: -333.3333333333ms;
+            animation-delay: -333.3333333333ms;
+        }
+
+        .bases:nth-of-type(2):before,
+        .bases:nth-of-type(2):after {
+            -webkit-animation-delay: -333.3333333333ms;
+            animation-delay: -333.3333333333ms;
+        }
+
+        .bases:nth-of-type(3) {
+            -webkit-animation-delay: -500ms;
+            animation-delay: -500ms;
+        }
+
+        .bases:nth-of-type(3):before,
+        .bases:nth-of-type(3):after {
+            -webkit-animation-delay: -500ms;
+            animation-delay: -500ms;
+        }
+
+        .bases:nth-of-type(4) {
+            -webkit-animation-delay: -666.6666666667ms;
+            animation-delay: -666.6666666667ms;
+        }
+
+        .bases:nth-of-type(4):before,
+        .bases:nth-of-type(4):after {
+            -webkit-animation-delay: -666.6666666667ms;
+            animation-delay: -666.6666666667ms;
+        }
+
+        .bases:nth-of-type(5) {
+            -webkit-animation-delay: -833.3333333333ms;
+            animation-delay: -833.3333333333ms;
+        }
+
+        .bases:nth-of-type(5):before,
+        .bases:nth-of-type(5):after {
+            -webkit-animation-delay: -833.3333333333ms;
+            animation-delay: -833.3333333333ms;
+        }
+
+        .bases:nth-of-type(6) {
+            -webkit-animation-delay: -1000ms;
+            animation-delay: -1000ms;
+        }
+
+        .bases:nth-of-type(6):before,
+        .bases:nth-of-type(6):after {
+            -webkit-animation-delay: -1000ms;
+            animation-delay: -1000ms;
+        }
+
+        .bases:nth-of-type(7) {
+            -webkit-animation-delay: -1166.6666666667ms;
+            animation-delay: -1166.6666666667ms;
+        }
+
+        .bases:nth-of-type(7):before,
+        .bases:nth-of-type(7):after {
+            -webkit-animation-delay: -1166.6666666667ms;
+            animation-delay: -1166.6666666667ms;
+        }
+
+        .bases:nth-of-type(8) {
+            -webkit-animation-delay: -1333.3333333333ms;
+            animation-delay: -1333.3333333333ms;
+        }
+
+        .bases:nth-of-type(8):before,
+        .bases:nth-of-type(8):after {
+            -webkit-animation-delay: -1333.3333333333ms;
+            animation-delay: -1333.3333333333ms;
+        }
+
+        .bases:nth-of-type(9) {
+            -webkit-animation-delay: -1500ms;
+            animation-delay: -1500ms;
+        }
+
+        .bases:nth-of-type(9):before,
+        .bases:nth-of-type(9):after {
+            -webkit-animation-delay: -1500ms;
+            animation-delay: -1500ms;
+        }
+
+        .bases:nth-of-type(10) {
+            -webkit-animation-delay: -1666.6666666667ms;
+            animation-delay: -1666.6666666667ms;
+        }
+
+        .bases:nth-of-type(10):before,
+        .bases:nth-of-type(10):after {
+            -webkit-animation-delay: -1666.6666666667ms;
+            animation-delay: -1666.6666666667ms;
+        }
+
+        .bases:nth-of-type(11) {
+            -webkit-animation-delay: -1833.3333333333ms;
+            animation-delay: -1833.3333333333ms;
+        }
+
+        .bases:nth-of-type(11):before,
+        .bases:nth-of-type(11):after {
+            -webkit-animation-delay: -1833.3333333333ms;
+            animation-delay: -1833.3333333333ms;
+        }
+
+        .bases:nth-of-type(12) {
+            -webkit-animation-delay: -2000ms;
+            animation-delay: -2000ms;
+        }
+
+        .bases:nth-of-type(12):before,
+        .bases:nth-of-type(12):after {
+            -webkit-animation-delay: -2000ms;
+            animation-delay: -2000ms;
+        }
+
+        .bases:nth-of-type(13) {
+            -webkit-animation-delay: -2166.6666666667ms;
+            animation-delay: -2166.6666666667ms;
+        }
+
+        .bases:nth-of-type(13):before,
+        .bases:nth-of-type(13):after {
+            -webkit-animation-delay: -2166.6666666667ms;
+            animation-delay: -2166.6666666667ms;
+        }
+
+        .bases:nth-of-type(14) {
+            -webkit-animation-delay: -2333.3333333333ms;
+            animation-delay: -2333.3333333333ms;
+        }
+
+        .bases:nth-of-type(14):before,
+        .bases:nth-of-type(14):after {
+            -webkit-animation-delay: -2333.3333333333ms;
+            animation-delay: -2333.3333333333ms;
+        }
+
+        .bases:nth-of-type(15) {
+            -webkit-animation-delay: -2500ms;
+            animation-delay: -2500ms;
+        }
+
+        .bases:nth-of-type(15):before,
+        .bases:nth-of-type(15):after {
+            -webkit-animation-delay: -2500ms;
+            animation-delay: -2500ms;
+        }
+
+        .bases:nth-of-type(16) {
+            -webkit-animation-delay: -2666.6666666667ms;
+            animation-delay: -2666.6666666667ms;
+        }
+
+        .bases:nth-of-type(16):before,
+        .bases:nth-of-type(16):after {
+            -webkit-animation-delay: -2666.6666666667ms;
+            animation-delay: -2666.6666666667ms;
+        }
+
+        .bases:nth-of-type(17) {
+            -webkit-animation-delay: -2833.3333333333ms;
+            animation-delay: -2833.3333333333ms;
+        }
+
+        .bases:nth-of-type(17):before,
+        .bases:nth-of-type(17):after {
+            -webkit-animation-delay: -2833.3333333333ms;
+            animation-delay: -2833.3333333333ms;
+        }
+
+        .bases:nth-of-type(18) {
+            -webkit-animation-delay: -3000ms;
+            animation-delay: -3000ms;
+        }
+
+        .bases:nth-of-type(18):before,
+        .bases:nth-of-type(18):after {
+            -webkit-animation-delay: -3000ms;
+            animation-delay: -3000ms;
+        }
+
+        .bases:nth-of-type(19) {
+            -webkit-animation-delay: -3166.6666666667ms;
+            animation-delay: -3166.6666666667ms;
+        }
+
+        .bases:nth-of-type(19):before,
+        .bases:nth-of-type(19):after {
+            -webkit-animation-delay: -3166.6666666667ms;
+            animation-delay: -3166.6666666667ms;
+        }
+
+        .bases:nth-of-type(20) {
+            -webkit-animation-delay: -3333.3333333333ms;
+            animation-delay: -3333.3333333333ms;
+        }
+
+        .bases:nth-of-type(20):before,
+        .bases:nth-of-type(20):after {
+            -webkit-animation-delay: -3333.3333333333ms;
+            animation-delay: -3333.3333333333ms;
+        }
+
+        .bases:nth-of-type(21) {
+            -webkit-animation-delay: -3500ms;
+            animation-delay: -3500ms;
+        }
+
+        .bases:nth-of-type(21):before,
+        .bases:nth-of-type(21):after {
+            -webkit-animation-delay: -3500ms;
+            animation-delay: -3500ms;
+        }
+
+        .bases:nth-of-type(22) {
+            -webkit-animation-delay: -3666.6666666667ms;
+            animation-delay: -3666.6666666667ms;
+        }
+
+        .bases:nth-of-type(22):before,
+        .bases:nth-of-type(22):after {
+            -webkit-animation-delay: -3666.6666666667ms;
+            animation-delay: -3666.6666666667ms;
+        }
+
+        .bases:nth-of-type(23) {
+            -webkit-animation-delay: -3833.3333333333ms;
+            animation-delay: -3833.3333333333ms;
+        }
+
+        .bases:nth-of-type(23):before,
+        .bases:nth-of-type(23):after {
+            -webkit-animation-delay: -3833.3333333333ms;
+            animation-delay: -3833.3333333333ms;
+        }
+
+        .bases:nth-of-type(24) {
+            -webkit-animation-delay: -4000ms;
+            animation-delay: -4000ms;
+        }
+
+        .bases:nth-of-type(24):before,
+        .bases:nth-of-type(24):after {
+            -webkit-animation-delay: -4000ms;
+            animation-delay: -4000ms;
+        }
+
+        .bases.at {
+            background-image: linear-gradient(to right, transparent 10%, #717ec3 10%, #717ec3 50%, #edd382 50%, #edd382 90%, transparent 90%);
+        }
+
+        .bases.at:before {
+            background: #edd382;
+        }
+
+        .bases.at:after {
+            background: #717ec3;
+        }
+
+        .bases.ta {
+            background-image: linear-gradient(to right, transparent 10%, #edd382 10%, #edd382 50%, #717ec3 50%, #717ec3 90%, transparent 90%);
+        }
+
+        .bases.ta:before {
+            background: #717ec3;
+        }
+
+        .bases.ta:after {
+            background: #edd382;
+        }
+
+        .bases.cg {
+            background-image: linear-gradient(to right, transparent 10%, #85ffc7 10%, #85ffc7 50%, #ff6f59 50%, #ff6f59 90%, transparent 90%);
+        }
+
+        .bases.cg:before {
+            background: #ff6f59;
+        }
+
+        .bases.cg:after {
+            background: #85ffc7;
+        }
+
+        .bases.gc {
+            background-image: linear-gradient(to right, transparent 10%, #ff6f59 10%, #ff6f59 50%, #85ffc7 50%, #85ffc7 90%, transparent 90%);
+        }
+
+        .bases.gc:before {
+            background: #85ffc7;
+        }
+
+        .bases.gc:after {
+            background: #ff6f59;
+        }
+
+        @-webkit-keyframes spin {
+            0% {
+                transform: rotateY(360deg);
+            }
+
+            100% {
+                transform: rotateY(0deg);
+            }
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotateY(360deg);
+            }
+
+            100% {
+                transform: rotateY(0deg);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="DNA">
+        <div class="helix"></div>
+        <div class="bases at"></div>
+        <div class="bases cg"></div>
+        <div class="bases ta"></div>
+        <div class="bases at"></div>
+        <div class="bases at"></div>
+        <div class="bases gc"></div>
+        <div class="bases gc"></div>
+        <div class="bases cg"></div>
+        <div class="bases ta"></div>
+        <div class="bases gc"></div>
+        <div class="bases at"></div>
+        <div class="bases cg"></div>
+        <div class="bases cg"></div>
+        <div class="bases cg"></div>
+        <div class="bases ta"></div>
+        <div class="bases gc"></div>
+        <div class="bases cg"></div>
+        <div class="bases gc"></div>
+        <div class="bases gc"></div>
+        <div class="bases cg"></div>
+        <div class="bases ta"></div>
+        <div class="bases at"></div>
+        <div class="bases at"></div>
+    </div>
+</body>
+
+</html>

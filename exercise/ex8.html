@@ -1,0 +1,117 @@
+<!-- 
+    ไทเกอร์ต้องการสร้างความตระหนักรู้ให้แก่เด็กรุ่นใหม่เพื่อให้เข้าใจในวัฒนธรรมอันดีงามของคนไทยและรู้ซึ้งถึงความรุ่มรวยทางมรดกอันล้ำค่าของพระราชพิธีบรมราชาภิเษก จึงได้ทำเว็บไซต์เพื่อจัดจำหน่ายหนังสือที่รวบรวมเนื้อหาดังกล่าว เพื่อความหะรูหะรา ไทเกอร์จึงต้องการทำให้หน้าปก แบนๆ กลายเป็นหนังสือแบบมีมิติมีความหนา เรามาช่วยไทเกอร์กันเถอะ
+    โจทย์
+    ทำให้หนังสืออันทรงคุณค่านี้ เปลี่ยนจากแบนๆ เป็นสามมิติ (preserve-3d) พร้อมใส่สันกระดาษให้มีความหนา ดูเป็นหนังสือจริงๆ เนื่องจากมรดกอันล้ำค่านี้มีเนื้อหาอัดแน่นมากมายเหมาะแก่อนุชนคนรุ่นหลังจะได้รู้ไว้
+    เพื่อไม่ให้ยากเกินไป โจทย์ได้สร้าง .paper ทั้งสองด้านให้แล้ว มารื้อฟื้นเรื่อง transform ที่สำคัญมากๆ กันค่ะ จากนั้น
+    ลองทำให้เอาเมาส์วางแล้ว มีการเปลี่ยนมิติ ลองใช้ translate ช่วย มากกว่าแค่หมุนมันอย่างเดียว เช่นเปลี่ยนจากเอียงๆ เป็นหันหน้ามาตรงหน่อย แต่ลอยขึ้นบน
+    ลองทำให้ตอนไม่ได้ทำอะไร ให้มันมี animation เล็กน้อย รอเอาเมาส์ไปวางดู
+    ลองใส่สันหนังสือ (ขอบด้านซ้าย) เพิ่มมา มีสีตามปกหนังสือ แล้วเวลาหมุนจะได้หมุนซ้าย หมุนขวาได้
+    https://codebox.jabont.com/code/3477/?
+-->
+<html>
+  <head>
+    <title>Let's Start</title>
+    <style>
+      body {
+        margin: 3em;
+      }
+      .cover {
+        width: 300px;
+        margin: auto;
+        font-size: 0;
+        transition: all 1s ease-in-out;
+        cursor: pointer;
+        position: relative;
+        /*         transform-style:; */
+        /*         transform:; */
+        transform-style: preserve-3d;
+        transform: translateY(70px) rotateZ(20deg) rotateX(10deg) rotateY(-40deg);
+        animation: move 1s infinite alternate;
+      }
+      .cover:hover {
+        animation: hoverColor 1s forwards;
+        
+      }
+      @keyframes hoverColor {
+        to {
+			transform: translateY(0px) rotateZ(-5deg) rotateX(-5deg) rotateY(30deg);
+        }
+      }
+      .cover img {
+        width: 100%;
+      }
+      @keyframes move {
+        from {
+          transform: translateY(70px) rotateZ(20deg) rotateX(10deg) rotateY(-40deg);
+        }
+        to {
+          transform: translateY(70px) rotateZ(10deg) rotateX(5deg) rotateY(-40deg);
+        }
+      }
+      .paper-1 {
+        background: linear-gradient(to right, #eee, #ddd);
+        right: -20px;
+        top: 0;
+        width: 20px;
+        height: 100%;
+        /*         transform-origin:; */
+        /*         transform:; */
+        transform-origin: top left;
+        transform: rotateY(90deg);
+        border-right: 1px solid #999;
+      }
+      .paper-2 {
+        background: linear-gradient(to right, #eee, #ddd);
+        left: 0;
+        bottom: -20px;
+        width: 100%;
+        height: 20px;
+        /*         transform-origin:; */
+        /*         transform:; */
+        transform-origin: top;
+        transform: rotateX(270deg);
+        border-bottom: 1px solid #999;
+      }
+      .paper-3 {
+        background: linear-gradient(to right, #eee, #ddd);
+        left: 0;
+        top: 0px;
+        width: 100%;
+        height: 20px;
+        /*         transform-origin:; */
+        /*         transform:; */
+        transform-origin: top;
+        transform: rotateX(270deg);
+        border-bottom: 1px solid #999;
+      }
+      .paper-4 {
+        background: linear-gradient(to right, #e0b950, #c2a554);
+        top: -20px;
+        top: 0;
+        width: 20px;
+        height: 100%;
+        /*         transform-origin:; */
+        /*         transform:; */
+        transform-origin: top left;
+        transform: rotateY(90deg);
+        border-right: 1px solid #999;
+      }
+      .paper {
+        position: absolute;
+        box-sizing: border-box;
+        z-index: 50;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="cover">
+      <img
+        src="https://content.shopback.com/th/wp-content/uploads/2019/05/01185252/pic9_phralan.in_.th_.jpg"
+      />
+      <div class="paper paper-1"></div>
+      <div class="paper paper-2"></div>
+      <div class="paper paper-3"></div>
+      <div class="paper paper-4"></div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,117 @@
+<!-- 
+    -- เลือกทำสีอะไรก็ได้นะคะ --
+    1. ใน HTML นี้ จะมีกล่อง 25 กล่อง ห้ามแก้ไชเพิ่มเติมใดๆ
+    2. ให้เขียน css ทำให้บนเว็บไซต์แสดงผลกล่องเป็น 5x5 เสมอ
+    3. ทำให้พื้นหลังกล่องแสดงสลับสี 2 สี
+    4. ให้สีที่กล่อง มี hue เดียวกัน (สีอะไรก็ได้) แต่เปลี่ยน saturation และ lightness ตามความเหมาะสม ให้สวยงาม
+    5. ให้ขอบกล่องชิด body สนิท ไม่เว้นขอบ โปรดระวังเรื่องขอบของ body 
+    !! ถ้า vw มีปัญหา แก้เป็น % ได้ครับ
+    Note: อาศัยเรื่อง display ทำให้กล่องเรียงตัวกันโดยใช้ display ที่ทำให้ element เรียงบนเส้นบรรทัดต่อเนื่องกันไม่ขึ้นบรรทัดใหม่แต่ยังกำหนดขนาดได้ 
+    Tips: display บางอย่าง จะสร้าง white space ระหว่างบรรทัดให้อัตโนมัติ วิธีแก้คือกำหนดขนาดฟอนท์ของแม่ ให้เป็น 0
+    https://codebox.jabont.com/code/2662/?
+ -->
+<html>
+
+<head>
+    <style>
+        :root {
+            --w: 20%;
+            --h: 20vh;
+        }
+
+        body {
+            font-size: 0;
+            margin: 0;
+        }
+
+        div {
+            width: var(--w);
+            height: var(--h);
+            display: inline-block;
+        }
+
+        div:nth-child(even) {
+            background: hsl(300, 76%, 72%);
+        }
+
+        div:nth-child(odd) {
+            background: hsl(270, 76%, 72%);
+        }
+    </style>
+    <!-- 
+    <style>
+      body {
+            font-size: 0;
+            display: flex;
+            flex-wrap: wrap;
+            margin: 0;
+        }
+
+        body>div {
+            width: 20%;
+            height: 20%;
+            background: hsla(316, 100%, 50%, 1);
+        }
+
+        body>div:nth-child(even) {
+            background: hsla(316, 100%, 50%, 0.5);
+        }
+    </style>
+    -->
+</head>
+
+<body>
+    <!-- ห้ามแก้ HTML -->
+    <div>
+    </div>
+    <div>
+    </div>
+    <div>
+    </div>
+    <div>
+    </div>
+    <div>
+    </div>
+    <div>
+    </div>
+    <div>
+    </div>
+    <div>
+    </div>
+    <div>
+    </div>
+    <div>
+    </div>
+    <div>
+    </div>
+    <div>
+    </div>
+    <div>
+    </div>
+    <div>
+    </div>
+    <div>
+    </div>
+    <div>
+    </div>
+    <div>
+    </div>
+    <div>
+    </div>
+    <div>
+    </div>
+    <div>
+    </div>
+    <div>
+    </div>
+    <div>
+    </div>
+    <div>
+    </div>
+    <div>
+    </div>
+    <div>
+    </div>
+</body>
+
+</html>

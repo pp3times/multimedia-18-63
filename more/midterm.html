@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            margin: 0;
+        }
+        .text{
+            height: 100px;
+            width: 1000px;
+            margin: auto;
+            text-align : center;
+        }
+        .text b{
+            font-size: 36px;
+        }
+        .text p{
+            font-size: 24px;
+        }
+        .box{
+            height: 0px;
+            width: 500px;
+            background: pink;
+            margin: auto;
+            position: relative;
+            text-align: center;
+            padding-top: 40px;
+            padding-left: 10px;
+            padding-right: 10px;
+            margin-bottom: 10px;
+            opacity: 0;
+            transition: 1s;
+        }
+        .box b{
+            font-size: 24px;
+        }
+        .box p{
+            margin-top: 40px;
+        }
+        input{
+            width: 100vw;
+        }
+    </style>
+</head>
+<body>
+    <div class="text">
+        <b>ย้อนรอยรัฐประหารในประวัติศาสตร์ไทย</b>
+        <p id="year">พ.ศ.2475</p>
+    </div>
+    <input type="range" min="2475" max="2564" step="1" value="2475" oninput="year(this.value)" id="change">
+    <div class="box">
+        <b>ครั้งที่ 3</b>
+        <p>เวฟเวฟเวฟเวฟเวฟเวฟเวฟเวฟเวฟเวฟเวฟเวฟเวฟเวฟเวฟเวฟเวฟเวฟเวฟเวฟเวฟเวฟเวฟเวฟเวฟเวฟเวฟเวฟเวฟเวฟ</p>
+    </div>
+    <div class="box">
+        <b>ครั้งที่ 2</b>
+        <p>เวฟเวฟเวฟเวฟเวฟเวฟเวฟเวฟเวฟเวฟเวฟเวฟเวฟเวฟเวฟเวฟเวฟเวฟเวฟเวฟเวฟเวฟเวฟเวฟเวฟเวฟเวฟเวฟเวฟเวฟ</p>
+    </div>
+    <div class="box">
+        <b>ครั้งที่ 1</b>
+        <p>เวฟเวฟเวฟเวฟเวฟเวฟเวฟเวฟเวฟเวฟเวฟเวฟเวฟเวฟเวฟเวฟเวฟเวฟเวฟเวฟเวฟเวฟเวฟเวฟเวฟเวฟเวฟเวฟเวฟเวฟ</p>
+    </div>
+
+    <script>
+        function year(e){
+            let box = document.querySelectorAll(".box");
+            document.querySelector("#year").innerText = 'พ.ศ.'+ e;
+            
+            if(e >= 2500){
+                box[2].style.height = "200px";
+                box[2].style.opacity = "1";
+            }
+            else{
+                box[2].style.height = "0px";
+                box[2].style.opacity = "0";
+            }
+            if(e >= 2520){
+                box[1].style.height = "200px";
+                box[1].style.opacity = "1";
+            }
+            else{
+                box[1].style.height = "0px";
+                box[1].style.opacity = "0";
+            }
+            if(e >= 2540){
+                box[0].style.height = "200px";
+                box[0].style.opacity = "1";
+            }
+            else{
+                box[0].style.height = "0px";
+                box[0].style.opacity = "0";
+            }
+        }
+    </script>
+</body>
+</html>

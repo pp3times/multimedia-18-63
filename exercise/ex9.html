@@ -1,0 +1,88 @@
+<!-- 
+    ท็อปปี้พรีวี่ นักร้องเพลงลูกทุ่งเมทัลร็อคสกาแอนด์บลูชื่อดังประจำคณะเสียงอีสาน รู้สึกหม่นหมองในงานการแสดงที่เข้ามาอย่างไม่หยุดหย่นจนอยากพักผ่อนหย่อนใจ แต่เขาไม่สามารถไปได้ เขาจึงเปิดคอมพิวเตอร์ (ที่ได้มาจากการแอบเอาแคนของอิงคณีศรีมหาสังข์ไปขายต่อใน dark web) มาเพื่อสร้างภาพบรรยากาศชายทุ่ง ที่มีรวงข้าวสีทองพริ้วไสวไปกับสายลม
+    ฉับพลันนั้นเขาก็หวนคำนึงถึงร้านรวงที่จะแปะ HAPPY NEW YEAR บนกระดาษสีทองพริ้วไหวไปตามลม เขาคิดถึงมันมากๆ มาช่วยทำให้ฝันของท็อปปี้พรีวี่เป็นจริงกันเถอะ
+    โจทย์
+    ทำให้ข้อความ เหมือนกระดาษที่แปะด้านบนไว้กับขอบ แล้วด้านล่างโดนลมพัด ดังนั้นจุดหมุนต้องอยู่ด้านบน ลองหมุนแกน x y จินตนาการตาม โดยให้แต่ละอันเริ่มพัดไม่พร้อมกัน (delay) โดยคำนวณจากค่า i ที่ให้มาแล้วใน html
+    ใช้ perspective กำหนดความห่างของสายตาจนถึง element
+    ไม่ยากจริงๆ แค่ต้องลองหมุนไปหมุนมา
+    เราหมุนกระดาษเพื่อให้เป็นลมพัด แล้วเราหมุน row เพื่อให้มองเห็นกระดาษได้ชัดขึ้น อาจจะหมุนไม่เหมือนในวิดีโอได้ ลองปรับเปลี่ยนดู
+    ลองทำ animation หมุนมุมมองอื่นๆ ของ Row ดู เพื่อให้เห็น perspective ชัด
+    ลองเปลี่ยน Hue และ Ligthness ตอนมุนโดนลมพัดด้วยนะคะ ของพี่ปรับเป็นเวลาไปอยู่ข้างหลังจะมืดๆ เข้มๆ มาข้างหน้าจะสว่างๆ
+    แตกบรานซ์ -> https://codebox.jabont.com/code/3480/?
+-->
+<html>
+  <head>
+    <title>Let's Start
+    </title>
+    <style>
+      body{
+        margin:3em;
+        text-align:center;
+      }
+      .bar{
+        display:inline-block;
+        color:red;
+        padding:7em 1em 1em;
+        animation: ani infinite 4s alternate ease-in-out;
+        transform-origin: top;
+        animation-delay: calc(-1s * var(--i)/10);
+        box-shadow:0px -20px 20px inset #f803;
+        background:hsl(45,100%,45%);
+      }
+      .row{
+        transform-style: preserve-3d;
+        transform:perspective(600px) rotatey(5deg) rotatex(0deg); 
+      }
+      @keyframes ani{
+        from{
+           transform: rotateX(-90deg) rotateY(-10deg);
+           background:hsl(45,100%,45%); 
+        }
+        to{
+           transform:rotateX(60deg) rotateY(10deg);
+           background:hsl(45,100%,60%);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="row">
+      <div class="bar" style="--i:1">
+        H
+      </div>
+      <div class="bar" style="--i:2">
+        A
+      </div>
+      <div class="bar" style="--i:3">
+        P
+      </div>
+      <div class="bar" style="--i:4">
+        P
+      </div>
+      <div class="bar" style="--i:5">
+        Y
+      </div>
+      <div class="bar" style="--i:6">
+        N
+      </div>
+      <div class="bar" style="--i:7">
+        E
+      </div>
+      <div class="bar" style="--i:8">
+        W
+      </div>
+      <div class="bar" style="--i:9">
+        Y
+      </div>
+      <div class="bar" style="--i:10">
+        E
+      </div>
+      <div class="bar" style="--i:11">
+        A
+      </div>
+      <div class="bar" style="--i:12">
+        R
+      </div>
+    </div>
+  </body>
+</html>

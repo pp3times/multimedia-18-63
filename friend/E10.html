@@ -1,0 +1,33 @@
+<html>
+  <head>
+    <title>Let's Start
+    </title>
+    <style>
+      :root {
+        --h: 0;
+      }
+      body{
+        background:hsl(var(--h), 100%, 50%);
+        height:3600vh;
+      }
+      h1{
+        position:fixed;
+        color:white;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>
+      window.scrollY = 
+      <span id="val">
+      </span>
+    </h1>
+    <script type="text/javascript">
+      window.onscroll = function(){
+        let scrollY = window.scrollY;
+        val.innerText = scrollY;
+        document.documentElement.style.setProperty("--h", scrollY/360);
+      }
+    </script>
+  </body>
+</html>

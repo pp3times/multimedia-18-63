@@ -1,0 +1,158 @@
+<!-- 
+    ทำ E5 ให้เสร็จก่อนนะคะ
+    ตัวอย่าง https://www.youtube.com/watch?v=_Ve_I98fwDw
+    1. ทุกๆ 1 วินาที จะมีการเปลี่ยนค่าของ char โดยค่านั้นจะระบุตำแหน่งบนหน้าจอ (โปรดอ่าน JS ที่เขียนไว้และทำความเข้าใจ)
+    2. ให้ตัวละคร (char) เลื่อนไปมาในหน้าจอ ตามที่ js สั่ง
+    3. สังเกต css ที่สั่ง char เพื่อทำความเข้าใจ css ให้มากขึ้น โดยใส่เพิ่มเติมที่ไม่ได้ระบุไว้
+    4. ได้มีการประกาศตัวแปร css ไว้ จะใช้หรือไม่ใช้ก็ได้
+    Tips: ทำตัวละครให้ติดก่อน แล้วค่อยทำให้ขยับได้
+    !! ถ้า vw มีปัญหา แก้เป็น % ได้ครับ
+    เป็นการทดสอบการอ่านและแก้ JS CSS น้า
+    https://codebox.jabont.com/code/2711/?
+-->
+<html>
+  <head>
+    <style>
+      :root{
+        --w:20%;
+        --h:20%;
+      }
+      body{
+        font-size:0;
+        margin:0;
+      }
+      #wrap div{
+        width:var(--w);
+        height:var(--h);
+        display:inline-block;
+      }
+      #wrap div:nth-child(even){
+        background:#ffe;
+      }
+      #wrap div:nth-child(odd){
+        background:#ddc;
+      }
+      /* แก้โค๊ดใต้นี้ */
+      div.char{
+        width:20%;
+        height:20%;
+        background-image:url('code.png');
+        background-size:contain;
+        background-repeat: no-repeat;
+        background-position: center ;
+        position:fixed;
+        top: 0;
+        left:0;
+        transition: top  1s, left  1s; 
+      }
+      div.char[x="1"]{
+			left:20%;
+        
+      }
+        div.char[x="2"]{
+			left:40%;
+          
+      }
+        div.char[x="3"]{
+			left:60%;
+            
+      }
+        div.char[x="4"]{
+			left:80%;
+            
+      }
+       div.char[y="1"]{
+			top:20%;
+            
+      }
+         div.char[y="2"]{
+			top:40%;
+            
+      }
+         div.char[y="3"]{
+			top:60%;
+            
+      }
+         div.char[y="4"]{
+			top:80%;
+
+      }
+    </style>
+  </head>
+  <body>
+    <!-- 
+== Exercise 6 ==
+1. ทุกๆ 1 วินาที จะมีการเปลี่ยนค่าของ char โดยค่านั้นจะระบุตำแหน่งบนหน้าจอ (โปรดอ่าน JS ที่เขียนไว้และทำความเข้าใจ)
+2. ให้ตัวละคร (char) เลื่อนไปมาในหน้าจอ ตามที่ js สั่ง
+3. สังเกต css ที่สั่ง char เพื่อทำความเข้าใจ css ให้มากขึ้น โดยใส่เพิ่มเติมที่ไม่ได้ระบุไว้
+4. ได้มีการประกาศตัวแปร css ไว้ จะใช้หรือไม่ใช้ก็ได้
+Tips: ทำตัวละครให้ติดก่อน แล้วค่อยทำให้ขยับได้
+เนื่องจากมี JS ขอให้ save แล้วเปิดเต็มหน้าจอเอา (ปุ่มด้านบนขวามืออันแรก) เพื่อดูผลลัพธ์เหมือนตอนทำเว็บจริงๆ นะคะ
+-->
+    <!-- ห้ามแก้ HTML -->
+    <div id="wrap">
+      <div>
+      </div>
+      <div>
+      </div>
+      <div>
+      </div>
+      <div>
+      </div>
+      <div>
+      </div>
+      <div>
+      </div>
+      <div>
+      </div>
+      <div>
+      </div>
+      <div>
+      </div>
+      <div>
+      </div>
+      <div>
+      </div>
+      <div>
+      </div>
+      <div>
+      </div>
+      <div>
+      </div>
+      <div>
+      </div>
+      <div>
+      </div>
+      <div>
+      </div>
+      <div>
+      </div>
+      <div>
+      </div>
+      <div>
+      </div>
+      <div>
+      </div>
+      <div>
+      </div>
+      <div>
+      </div>
+      <div>
+      </div>
+      <div>
+      </div>
+    </div>
+    <div class="char">
+    </div>
+    <script>
+      // ห้ามแก้ JS
+      setInterval(function(){
+        x = Math.floor(Math.random() * 5);
+        y = Math.floor(Math.random() * 5);
+        document.querySelector('.char').setAttribute('x',x);
+        document.querySelector('.char').setAttribute('y',y);
+      }
+                  ,1000)
+    </script>
+  </body>
+</html>

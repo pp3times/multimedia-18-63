@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+        }
+
+        body {
+            height: 100%;
+            width: 100%;
+            background-color: black;
+        }
+
+        .a {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            border-radius: 10px;
+            box-shadow: 0 0 20px red;
+        }
+
+        .p1 {
+            position: absolute;
+            left: calc((100% - 100px) / 2);
+            margin-top: 1em;
+        }
+
+        .b {
+            width: 100px;
+            height: 100px;
+            background-color: purple;
+            border-radius: 10px;
+            transform: rotate(45deg);
+            box-shadow: 0 0 20px purple;
+        }
+
+        .p2 {
+            top: calc((100% - 100px) / 2);
+            position: absolute;
+            margin-left: 1em;
+        }
+
+        .c {
+            width: 100px;
+            height: 60px;
+            background-color: green;
+            border-radius: 5px;
+            /*   margin-right: 3em; */
+            box-shadow: 0 0 20px green;
+            transform: skew(-45deg) rotate(45deg);
+        }
+
+        .p3 {
+            position: absolute;
+            right: 0;
+            top: calc((100% - 100px) / 2);
+        }
+
+        .d {
+            width: 100px;
+            height: 100px;
+            background-color: skyblue;
+            border-radius: 100%;
+            box-shadow: 0 0 20px skyblue;
+        }
+
+        .p4 {
+            position: absolute;
+            bottom: 0;
+            left: calc((100% - 100px) / 2);
+            margin-bottom: 1em;
+        }
+
+        .e {
+            position: absolute;
+            top: calc((100% - 100px) / 2);
+            left: calc((100% - 100px) / 2);
+        }
+    </style>
+</head>
+
+<body>
+    
+    <div class="a p1"></div>
+    <div class="b p2"></div>
+    <div class="c p3"></div>
+    <div class="d p4"></div>
+    <div class="e"></div>
+    <script>
+        const block = document.querySelector(".e");
+        document.body.onkeyup = function (e) {
+            console.log(e);
+            if (e.key == "ArrowUp") {
+                block.innerHTML = "<div class='a'></div>";
+            } else if (e.key == "ArrowDown") {
+                block.innerHTML = "<div class='d'></div>";
+            } else if (e.key == "ArrowLeft") {
+                block.innerHTML = "<div class='b'></div>";
+            } else if (e.key == "ArrowRight") {
+                block.innerHTML = "<div class='c'></div>";
+            }
+        };
+
+    </script>
+</body>
+
+</html>
