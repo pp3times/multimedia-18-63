@@ -1,0 +1,97 @@
+<html>
+    <head>
+        <title>หิวตีน</title>
+        <style>
+            body {
+                display: flex;
+                background: #01001e;
+            }
+            .shape {
+                height: 100px;
+                width: 100px;
+                background: red;
+                position: absolute;
+            }
+            #up {
+                left: 50%;
+                top: 30;
+                transform: translate(-50%, 0);
+            }
+            #left {
+                left: 30;
+                top: 50%;
+                transform: translate(0%, -50%) rotateZ(45deg);
+            }
+            #down {
+                left: 50%;
+                bottom: 30;
+                transform: translate(-50%, 0);
+            }
+            #right {
+                right: 30;
+                top: 50%;
+                transform: translate(0%, -50%) skew(-30deg);
+            }
+            .up {
+                background: #ce0c29;
+            }
+            .left {
+                transform: rotateZ(45deg);
+                background: #640edd;
+                border-radius: 20px;
+            }
+            .down {
+                border-radius: 100%;
+                background: #17c9e0;
+            }
+            .right {
+                transform: skew(-30deg);
+                background: #3fd615;
+            }
+            #select {
+                height: 200px;
+                width: 200px;
+                margin: auto;
+                transition: all 1s;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="up" class="shape up"></div>
+        <div id="down" class="shape down"></div>
+        <div id="left" class="shape left"></div>
+        <div id="right" class="shape right"></div>
+        <div id="select" class="up"></div>
+    </body>
+    <script>
+        let toggle = "up"
+        document.onkeyup = (e) => {
+            select.classList.remove(toggle)
+            switch (e.key) {
+                case "ArrowUp":
+                    select.classList.add("up")
+                    toggle = "up"
+                    break;
+                case "ArrowDown": {
+                    select.classList.add("down")
+                    toggle = "down"
+                    break;
+                }
+                case "ArrowLeft": {
+                    select.classList.add("left")
+                    toggle = "left"
+                    break;
+                }
+                case "ArrowRight": {
+                    select.classList.add("right")
+                    toggle = "right"
+                    break;
+                }
+                default: {
+                    toggle = "up"
+                    select.classList.add("up")
+                }
+            }
+        }
+    </script>
+</html>

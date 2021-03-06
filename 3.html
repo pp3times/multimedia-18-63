@@ -1,0 +1,110 @@
+<html>
+    <head>
+        <title>อยากินลูกชิ้นมาก</title>
+        <style>
+            body {
+                background: black;
+                margin: 50px;
+                height: 1000vh;
+            }
+            #dna {
+                display: flex;
+                flex-direction: column;
+                position: fixed;
+                transform-style: preserve-3d;
+                transform: perspective(1000px) rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+            }
+            @keyframes rotate-all {
+                from {
+                    transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+                }
+                to {
+                    transform: rotateX(0deg) rotateY(360deg) rotateZ(0deg);
+                }
+            }
+            .sequence {
+                transform-style: preserve-3d;
+                margin: 15px auto;
+                display: flex;
+                position: relative;
+                animation: rotate-all 3s linear infinite;
+                
+            }
+            .sequence .left {
+                width: 250px;
+                height: 10px;
+                opacity: 0.5;
+            }
+            .sequence .right {
+                width: 250px;
+                height: 10px;
+                opacity: 0.7;
+            }
+            .circle {
+                width: 50px;
+                height: 50px;
+                border-radius: 100%;
+                position: absolute;
+                opacity: 0.7;
+            }
+            .circle.l {
+                left: 0;
+                transform: translate(-50%, -30%) rotateY(90deg);
+            }
+            .circle.r {
+                right: 0;
+                transform: translate(50%, -30%) rotateY(90deg);
+                transform-origin: top;
+            }
+
+            .color-a {
+                background: hsla(340, 100%, 80%, 1);
+                border: 1px solid hsla(340, 100%, 50%, 1);
+            }
+            .color-t {
+                background: hsla(192, 100%, 80%, 1);
+                border: 1px solid hsla(192, 100%, 50%, 1);
+            }
+            .color-c {
+                background: hsla(60, 100%, 80%, 1);
+                border: 1px solid hsla(60, 100%, 50%, 1);
+            }
+            .color-g {
+                background: hsla(263, 100%, 80%, 1);
+                border: 1px solid hsla(263, 100%, 50%, 1);
+            }
+        </style>
+    </head>
+    <body>
+        <div id="dna"></div>
+    </body>
+    <script>
+        for(let i = 0; i < 20; i++) {
+            let colors = ['a', 't', 'c', 'g']
+            let idx1  = Math.floor(Math.random() * 4)
+            let color1 = colors[idx1]
+            colors.slice(idx1, 1)
+            console.log(colors)
+            let color2  = colors[Math.floor(Math.random() * 3)]
+            dna.innerHTML += `
+                <div class="sequence" data-i="${i}" style="animation-delay: ${-150 * i}ms">
+                    <div class="left color-${color1}"></div>
+                    <div class="circle l color-${color1}"></div>
+                    <div class="right color-${color2}"></div>
+                    <div class="circle r color-${color2}"></div>
+                </div>
+            `
+        }
+        document.onscroll = () => {
+            let scrollY = Math.max(1, window.scrollY);
+            var limit = Math.max( document.body.scrollHeight, document.body.offsetHeight, 
+                   document.documentElement.clientHeight, document.documentElement.scrollHeight, document.documentElement.offsetHeight );
+            console.log(scrollY, limit)
+            document.querySelectorAll(".sequence").forEach((el) => {
+                el.style.animationDuration = `${3+((scrollY/limit)*10)}s`;
+                el.style.animationDelay = `${-(150 + ((scrollY/limit)*500)) * el.dataset.i}ms`;
+            })
+        }
+    </script>
+</html>
+

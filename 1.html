@@ -1,0 +1,63 @@
+<html>
+    <head>
+        <title>Hello Haha</title>
+        <style>
+            body {
+                text-align: center;
+                background: #eee;
+            }
+            body > h1 {
+                text-align: center;
+            }
+            #input-when {
+                width: 80vw;
+            }
+            #show {
+                display: flex;
+                flex-direction: column-reverse;
+            }
+            .card {
+                width: 50vw;
+                background: white;
+                margin: 20px auto;
+                border-radius: 5px;
+                transition: all 0.5s;
+                opacity: 1;
+                padding: 20px;
+            }
+            .card.show {
+                height: 200px;
+                opacity: 1;
+            }
+            .card.hind {
+                height: 0;
+                opacity: 0;
+                margin: 0 auto;
+                padding: 0;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>ย้อนร้อยรัฐประหารในประวัติศาสตร์ไทย</h1>
+        <h2>พ.ศ. <span id="when">2475</span></h2>
+        <input id="input-when" type="range" min="2475" max="2564" value="2475" oninput="update(this.value)"/>
+        <div id="show"></div>
+    </body>
+    <script>
+        for (let i = 0; i < 90; i++) {
+            show.innerHTML += `<div class="card hind" id="info" data-when="${2475+i}"><h1>ครั้งที่ ${i}</h1><p>ปลาหยุด ยึด</p></div>`
+        }
+        const update = (n) => {
+            document.querySelectorAll("#info").forEach((el) => {
+                if (el.dataset.when <= n) {
+                    el.classList.remove("hind")
+                    el.classList.add("show")
+                } else {
+                    el.classList.remove("show")
+                    el.classList.add("hind")
+                }
+                when.innerText = n;
+            })
+        }
+    </script>
+</html>
